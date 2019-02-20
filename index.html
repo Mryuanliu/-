@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>个人查询API</title>
+  <!-- Bootstrap -->
+  <link href="lib/css/bootstrap.min.css" rel="stylesheet">
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="lib/js/jquery-1.12.4.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="lib/js/bootstrap.min.js"></script>
+
+  <script src="./lib/js/template-web.js"></script>
+  <script src="lib/js/tempalte-native.js"></script>
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+      <style >
+        #div1,#div2,#div3 {
+          float: left;
+
+        }
+        #div1{
+          display:none;
+        }
+
+       #div3{
+         display:none;
+       }
+
+      </style>
+</head>
+<script>
+
+  $(document).ready(function(){
+      $("#myNav").affix({
+          offset: {
+              top: 125
+        }
+      });
+  });
+  </script>
+
+<body>
+    <div class="container">
+     <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">个人查询DIY</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="weather"><a href="#">天气查询<span class="sr-only">(current)</span></a></li>
+        <li class="car"><a href="#">火车票查询</a></li>
+		<li class="movie"><a href="#">豆瓣电影查询</a></li>
+
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">联系我们</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">个人信息 <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">注册</a></li>
+            <li><a href="#">登陆</a></li>
+            <li><a href="#">个人信息</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">地址</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<div class="page-header" id="div1">
+  <h1>天气查询 <small>如人饮水，冷暖自知</small></h1>
+  <div style="padding: 100px 100px 10px;">
+    <form class="bs-example bs-example-form" role="form">
+        <div class="input-group">
+            <span class="input-group-addon">城市</span>
+            <input id="cityName" type="text" class="form-control" placeholder="选择你要查询的城市">
+            <span class=" input-group-addon"><button type="button" class="b1 btn btn-primary" data-toggle="button">提交</button></span>
+        </div>
+        <br>
+    </form>
+</div>
+<table class="table t1">
+    <thead>
+    <tr>
+        <th>日期</th>
+        <th>星期</th>
+        <th>晚上最低温度</th>
+        <th>白天最高温度</th>
+        <th>天气</th>
+        <th>日出时间</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
+</div>
+<!--第二个 -->
+<div class="page-header" id="div2">
+  <h1>火车票查询 <small>我走过最远的路是你的套路</small></h1>
+  <div style="padding: 100px 100px 10px;">
+    <form class="bs-example bs-example-form" role="form">
+        <div class="input-group">
+            <span class="input-group-addon">始发站</span>
+            <input id="start" type="text" class="form-control" placeholder="选择你的始发站">
+            <span class="input-group-addon">终点站</span>
+            <input id="end" type="text" class="form-control" placeholder="选择你的终点站">
+        </div>
+        <button type="button" class="b2 btn btn-outline-light text-dark btn-lg" >开始查询</button>
+        <br>
+    </form>
+</div>
+<table class="table t2">
+    <thead>
+    <tr>
+        <th>车次</th>
+        <th>类型</th>
+        <th>出发站</th>
+        <th>到达站</th>
+        <th>出发时间</th>
+        <th>到达时间</th>
+        <th>距离</th>
+        <th>预定</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
+</div>
+
+<!--豆瓣电影-->
+<div id="div3">
+<div class="page-header" >
+  <h1>豆瓣电影 <small>豆瓣电影TOP250，给你好看</small></h1>
+
+</div>
+<div class="input-group">
+    <span class="input-group-addon">电影</span>
+    <input id="cityName" type="text" class="form-control" placeholder="欢迎来到豆瓣250">
+    <span class=" input-group-addon"><button type="button" class="b3 btn btn-primary" data-toggle="button">开始查询</button></span>
+</div>
+<table class="table t3">
+    <thead>
+    <tr>
+        <th>影名</th>
+        <th>时间</th>
+        <th>类型</th>
+        <th>导演</th>
+        <th>链接</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
+</div>
+<hr>
+</div>
+<script id="templateId1" type="text/template">
+  <%for(var i=0;i<subjects.length;i++){%>
+      <tr>
+          <td><%=subjects[i].title%></td>
+          <td><%=subjects[i].year%></td>
+          <td><%=subjects[i].genres[0]%></td>
+          <td><%=subjects[i].directors[0].name%></td>
+          <td><%=subjects[i].alt%></td>
+      </tr>
+  <%}%>
+</script>
+<script id="templateId" type="text/template">
+  <%for(var i=0;i<result.length;i++){%>
+      <tr>
+          <td><%=result[i].trainno%></td>
+          <td><%=result[i].type%></td>
+          <td><%=result[i].station%></td>
+          <td><%=result[i].endstation%></td>
+          <td><%=result[i].departuretime%></td>
+          <td><%=result[i].arrivaltime%></td>
+          <td><%=result[i].priceyz%></td>
+          <td><input type="button" value="预定" data-trainno="<%=result[i].trainno%>"></td>
+      </tr>
+  <%}%>
+</script>
+</script>
+<script type="text/javascript">
+    $(function(){
+      $("li.weather").on('click',function(){
+       $('div#div1').show();
+       $('div#div2').hide();
+       $('div#div3').hide();
+     })
+     $("li.car").on('click',function(){
+      $('div#div1').hide();
+      $('div#div2').show();
+      $('div#div3').hide();
+    })
+    $("li.movie").on('click',function(){
+     $('div#div1').hide();
+     $('div#div2').hide();
+     $('div#div3').show();
+   })
+      $("button.b1").on("click",function(){
+        var cityName=$("#cityName").val();
+
+        $.ajax({
+          url:"https://api.jisuapi.com/weather/query",
+          type:"get",
+          data:{
+            appkey:"084b73658213c5aa",
+            city:cityName
+          },
+          dataType:'jsonp',
+          success:function(data){
+
+          var weathers=data.result.daily;
+          //解析json格式数据，将json格式的数据，将json格式的数组与页面上的标签进行组装。
+          var tr=""
+          for(var i=0;i<weathers.length;i++){
+            tr+="<tr>";
+            tr+="<td>"+weathers[i].date+"</td>";
+            tr+="<td>"+weathers[i].week+"</td>";
+            tr+="<td>"+weathers[i].night.templow+"</td>";
+            tr+="<td>"+weathers[i].day.temphigh+"</td>";
+            tr+="<td>"+weathers[i].day.weather+"</td>";
+            tr+="<td>"+weathers[i].sunset+"</td>";
+            tr+="</tr>";
+
+          }
+
+          $('table.t1').append(tr);
+          }
+        });
+
+      });
+      //第二个ajax
+      $("button.b2").on("click",function(){
+
+        var start=$("#start").val();
+        var end=$("#end").val();
+        $.ajax({
+          url:"http://api.jisuapi.com/train/station2s",
+          data:{
+            appkey:"084b73658213c5aa",
+            start:start,
+            end:end
+          },
+          type:"get",
+          dataType:"jsonp",
+          success:function(data){
+
+          //现在咱们要使用模板，art-tmplate模板渲染。
+          //1.引入模板文件
+          //2.创建模板
+          //3.将数据跟模板进行绑定，调用tempalte-native.js下面的一个template方法。
+          //4.假设我将模板和数据进行绑定之后，模板文件template-native.js就会去解析模板里面的内容。
+          //5.要准备模板里面的内容，模板里面额内容跟写到页面的标签有关系
+          //6.我需要在这个模板解析数据，我需要在模板里面解析数据
+          //7.在模板里面解析数据，模板提供了两种语法，一种是原生的语法，一种是新语法。
+          //模块里面支持两种标签，一种是<% %>是用来写逻辑的
+          var html=template("templateId",data);
+
+          console.log(html);
+          $('table.t2').append(html);
+
+          }
+        })
+      })
+      $("button.b3").on("click",function(){
+      $.ajax({
+        url:"http://api.douban.com/v2/movie/top250",
+
+        type:"get",
+        dataType:"jsonp",
+        success:function(data){
+          var html1=template("templateId1",data);
+          $('table.t3').append(html1);
+        }
+      })
+      })
+
+    });
+
+</script>
+</body>
+
+</html>
